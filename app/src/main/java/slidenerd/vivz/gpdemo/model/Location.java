@@ -27,6 +27,6 @@ public class Location {
 
     @Override
     public String toString() {
-        return "ClassPojo [longitude = " + longitude + ", latitude = " + latitude + "]";
+        return "Location [longitude = " + longitude + ", latitude = " + latitude + "]";
     }
 }

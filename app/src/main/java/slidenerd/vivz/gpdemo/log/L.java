@@ -1,4 +1,4 @@
-package slidenerd.vivz.gpdemo;
+package slidenerd.vivz.gpdemo.log;
 
 import android.content.Context;
 import android.util.Log;

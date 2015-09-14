@@ -18,6 +18,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.model.LatLng;
 
+import slidenerd.vivz.gpdemo.log.L;
+
 /**
  * Created by vivz on 25/08/15.
  */
@@ -40,9 +42,11 @@ public abstract class BaseActivity extends AppCompatActivity implements GoogleAp
         setContentView(getContentView());
         initClient();
         initLocationRequest();
+
         mResolvingError = savedInstanceState != null
                 && savedInstanceState.getBoolean(STATE_RESOLVING_ERROR, false);
     }
+
 
     /**
      * @return the layout resource ID of your Activity's layout file
@@ -75,7 +79,6 @@ public abstract class BaseActivity extends AppCompatActivity implements GoogleAp
         if (mLocation == null) {
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
         } else {
-            L.s(this, mLocation.toString());
             updateLocation(mLocation);
         }
     }
