@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="280dp"
     android:layout_height="match_parent"
+    android:background="#ece0c8"
     android:padding="16dp">
 
     <TextView
@@ -13,7 +14,8 @@
         android:layout_toLeftOf="@+id/rating"
         android:fontFamily="sans-serif-light"
         android:gravity="center_vertical"
-        android:text="Title" />
+        android:text="Title"
+        android:textColor="#503a10" />
 
     <RatingBar
         android:id="@+id/rating"
@@ -35,6 +37,7 @@
         android:fontFamily="sans-serif-light"
         android:gravity="center_vertical"
         android:text="Subtitle"
+        android:textColor="#503a10"
         android:textSize="10sp" />
 
 </RelativeLayout>

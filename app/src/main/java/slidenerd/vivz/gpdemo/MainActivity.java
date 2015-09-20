@@ -106,32 +106,13 @@ public class MainActivity extends BaseActivity implements OnMapReadyCallback, Go
         mRecyclerCoffeeShops.setAdapter(mAdapter);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(0, 0), 15.0F));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(0, 0), 16.0F));
         mMap.setOnMarkerClickListener(this);
     }
 
@@ -160,7 +141,7 @@ public class MainActivity extends BaseActivity implements OnMapReadyCallback, Go
                     double latitude = Double.valueOf(current.getGeometry().getLocation().getLatitude());
                     double longitude = Double.valueOf(current.getGeometry().getLocation().getLongitude());
                     LatLng position = new LatLng(latitude, longitude);
-                    mMap.addMarker(new MarkerOptions().position(position).title(current.getName()).icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_local_cafe)));
+                    mMap.addMarker(new MarkerOptions().position(position).title(current.getName()).icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_coficon)));
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
 
                     listCoffeeShops.add(current);

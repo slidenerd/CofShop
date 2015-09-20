@@ -1,6 +1,7 @@
 package slidenerd.vivz.gpdemo;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +17,13 @@ import slidenerd.vivz.gpdemo.model.Results;
 class CoffeeShopsAdapter extends RecyclerView.Adapter<CoffeeShopsAdapter.YourRecyclerViewHolder> {
     private ArrayList<Results> list = new ArrayList<>();
     private LayoutInflater inflater;
+    private Typeface mRalewayBlack;
+    private Typeface mRalewayRegular;
 
     public CoffeeShopsAdapter(Context context) {
         inflater = LayoutInflater.from(context);
+        mRalewayBlack = Typeface.createFromAsset(context.getAssets(), "fonts/raleway_black.ttf");
+        mRalewayRegular = Typeface.createFromAsset(context.getAssets(), "fonts/raleway_regular.ttf");
 
     }
 
@@ -72,7 +77,7 @@ class CoffeeShopsAdapter extends RecyclerView.Adapter<CoffeeShopsAdapter.YourRec
         return list.size();
     }
 
-    static class YourRecyclerViewHolder extends RecyclerView.ViewHolder {
+    class YourRecyclerViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textName;
         private TextView textVicinity;
@@ -83,6 +88,8 @@ class CoffeeShopsAdapter extends RecyclerView.Adapter<CoffeeShopsAdapter.YourRec
             textName = (TextView) itemView.findViewById(R.id.text_name);
             textVicinity = (TextView) itemView.findViewById(R.id.text_vicinity);
             ratingBar = (RatingBar) itemView.findViewById(R.id.rating);
+            textName.setTypeface(mRalewayBlack);
+            textVicinity.setTypeface(mRalewayRegular);
         }
 
         public void setName(String name) {
