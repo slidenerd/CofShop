@@ -5,8 +5,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -107,7 +105,6 @@ public class MainActivity extends BaseActivity implements OnMapReadyCallback, Go
     }
 
 
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -141,9 +138,12 @@ public class MainActivity extends BaseActivity implements OnMapReadyCallback, Go
                     double latitude = Double.valueOf(current.getGeometry().getLocation().getLatitude());
                     double longitude = Double.valueOf(current.getGeometry().getLocation().getLongitude());
                     LatLng position = new LatLng(latitude, longitude);
-                    mMap.addMarker(new MarkerOptions().position(position).title(current.getName()).icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_coficon)));
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    markerOptions.position(position)
+                            .title(current.getName())
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_coficon));
+                    mMap.addMarker(markerOptions);
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
-
                     listCoffeeShops.add(current);
                 }
 

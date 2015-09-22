@@ -1,12 +1,15 @@
 package slidenerd.vivz.gpdemo;
 
 import android.content.Context;
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,12 +22,16 @@ class CoffeeShopsAdapter extends RecyclerView.Adapter<CoffeeShopsAdapter.YourRec
     private LayoutInflater inflater;
     private Typeface mRalewayBlack;
     private Typeface mRalewayRegular;
+    private Point displaySize;
+
 
     public CoffeeShopsAdapter(Context context) {
         inflater = LayoutInflater.from(context);
         mRalewayBlack = Typeface.createFromAsset(context.getAssets(), "fonts/raleway_black.ttf");
         mRalewayRegular = Typeface.createFromAsset(context.getAssets(), "fonts/raleway_regular.ttf");
-
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        displaySize = new Point();
+        windowManager.getDefaultDisplay().getSize(displaySize);
     }
 
     public void setDataSource(ArrayList<Results> listCoffeeShops) {
@@ -35,6 +42,7 @@ class CoffeeShopsAdapter extends RecyclerView.Adapter<CoffeeShopsAdapter.YourRec
     @Override
     public YourRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int i) {
         View root = inflater.inflate(R.layout.custom_row, parent, false);
+        root.setLayoutParams(new RelativeLayout.LayoutParams(displaySize.x, RelativeLayout.LayoutParams.MATCH_PARENT));
         YourRecyclerViewHolder holder = new YourRecyclerViewHolder(root);
         return holder;
     }
