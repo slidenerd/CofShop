@@ -1,43 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ece0c8"
-    android:padding="16dp">
+    android:background="#ece0c8">
 
-    <TextView
-        android:id="@+id/text_name"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/rating"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center_vertical"
-        android:text="Title"
-        android:textColor="#503a10" />
+        android:layout_gravity="center"
 
-    <RatingBar
-        android:id="@+id/rating"
-        style="@android:style/Widget.Holo.RatingBar.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/text_name"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/text_name"
-        android:isIndicator="true"
-        android:numStars="0" />
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/text_vicinity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/text_name"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center_vertical"
-        android:text="Subtitle"
-        android:textColor="#503a10"
-        android:textSize="10sp" />
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/rating"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_vertical"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:text="Title"
+            android:textColor="#503a10" />
 
-</RelativeLayout>
+        <RatingBar
+            android:id="@+id/rating"
+            style="@android:style/Widget.Holo.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/text_name"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/text_name"
+            android:isIndicator="true"
+            android:numStars="0" />
+
+        <TextView
+            android:id="@+id/text_vicinity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_name"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center_vertical"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:text="Subtitle"
+            android:textColor="#503a10"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+</FrameLayout>
+

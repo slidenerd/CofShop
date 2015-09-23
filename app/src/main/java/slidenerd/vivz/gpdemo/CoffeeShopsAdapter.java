@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.RatingBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ class CoffeeShopsAdapter extends RecyclerView.Adapter<CoffeeShopsAdapter.YourRec
     @Override
     public YourRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int i) {
         View root = inflater.inflate(R.layout.custom_row, parent, false);
-        root.setLayoutParams(new RelativeLayout.LayoutParams(displaySize.x, RelativeLayout.LayoutParams.MATCH_PARENT));
+        root.setLayoutParams(new FrameLayout.LayoutParams(displaySize.x, FrameLayout.LayoutParams.MATCH_PARENT));
         YourRecyclerViewHolder holder = new YourRecyclerViewHolder(root);
         return holder;
     }
